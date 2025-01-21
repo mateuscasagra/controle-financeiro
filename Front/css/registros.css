@@ -1,0 +1,93 @@
+/* Estilo do corpo */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Dividindo em duas colunas */
+  height: 100vh;
+  gap: 10px;
+}
+
+/* Estilo para a seção de registros */
+.registros {
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* Header, conteúdo e rodapé */
+  grid-template-areas:
+    "header"
+    "content"
+    "footer";
+  padding: 20px;
+  border-right: 1px solid #ccc;
+  gap: 20px;
+}
+
+/* Área do cabeçalho */
+.botoes {
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.botoes select,
+.botoes input[type="file"] {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Área principal com as tabelas */
+.Tabelas {
+  grid-area: content;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Três colunas para as tabelas */
+  gap: 10px;
+  max-height: 300px;
+}
+
+.Tabelas div {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+/* Área do rodapé */
+.extrato {
+  grid-area: footer;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  overflow: auto;
+  height: 50vh;
+  margin-bottom: 20px;
+}
+
+.maiores-gastos tr {
+  display: flex;
+  flex-direction: column;
+}
+h3 {
+  text-align: center;
+}
