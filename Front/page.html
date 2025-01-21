@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/index.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Finanças</title>
   </head>
   <body>
@@ -32,24 +33,22 @@
       </div>
       <div class="Tabelas">
         <div class="total-entrada">
-          <h3>Entrada</h3>
           <table id="t-entrada">
             <thead>
               <tr>
                 <th>Data</th>
-                <th>Total</th>
+                <th>Total Entrada</th>
               </tr>
             </thead>
             <tbody></tbody>
           </table>
         </div>
         <div class="total-saida">
-          <h3>Saída</h3>
           <table id="t-saida">
             <thead>
               <tr>
                 <th>Data</th>
-                <th>Total</th>
+                <th>Total Saída</th>
               </tr>
             </thead>
             <tbody></tbody>
@@ -82,7 +81,11 @@
         </div>
       </div>
     </section>
-    <section class="grafico"></section>
+    <section class="grafico-meta">
+      <div class="grafico">
+        <canvas id="grafico"></canvas>
+      </div>
+    </section>
     <script>
       function fetchDados() {
         fetch("http://127.0.0.1:5000/get_dados") // URL do backend
@@ -110,5 +113,6 @@
 
       fetchDados();
     </script>
+    <script src="js/grafico.js"></script>
   </body>
 </html>
