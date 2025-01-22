@@ -11,11 +11,21 @@ def processar_ofx(arquivo_ofx):
         for transacao in conta.statement.transactions:
             data = transacao.date.strftime("%d/%m/%Y")  # Formatar a data
             valor = transacao.amount  # Valor da transação
-            tipo_transacao = 'Crédito' if valor > 0 else 'Débito'  # Tipo da transação
-            print(f'Data: {data} | Valor: {valor:.2f} | Tipo: {tipo_transacao}')
+            
+            # Verificar se o campo 'trintytype' existe
+            tipo_transacao = getattr(transacao, 'trintytype', 'Tipo desconhecido')  # Padrão caso 'trintytype' não exista
+            
+            # Tentando obter o nome do payee (quem recebeu ou fez a transferência)
+            payee = getattr(transacao, 'memo', 'Não disponível')  # Usando memo como fallback
+
+            # Imprimir as informações
+            print(f'Data: {data} | Valor: {valor:.2f} | | Para/De: {payee}| Tipo: {tipo_transacao} | ')
 
 # Caminho para o arquivo .ofx
 arquivo_ofx = r'c:\Users\user\Downloads\extrato.ofx'
 
 # Chamar a função para processar o arquivo
 processar_ofx(arquivo_ofx)
+
+
+
